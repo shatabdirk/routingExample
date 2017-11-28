@@ -1,0 +1,26 @@
+<div ng-controller="MyController">
+  <button ng-click="back()" class="btn btn-primary m-3 text-center">Back</button>
+  <div class="m-2">
+    <form name="myForm">
+      <div class="m-3">
+        <input placeholder="name" type="text" class="form-control" name="name" id="nameId" ng-minlength="4" ng-model="emp.name" required/>
+        <div>
+          <small class="text-danger" ng-show="myForm.name.$touched && myForm.name.$error.required">Required!</small>
+          <small class="text-danger" ng-show="myForm.name.$touched && myForm.name.$error.minlength">Name should be minimum 4 character</small>
+        </div>
+      </div>
+
+      <div class="m-3">
+        <input placeholder="phone" ng-pattern="/^[0-9]*$/" type="text" class="form-control" name="phone" id="phoneId" ng-model="emp.phone" required/>
+        <div>
+          <small class="text-danger" ng-show="myForm.phone.$touched && myForm.phone.$error.required">Required!</small>
+          <small class="text-danger" ng-show="myForm.phone.$touched && myForm.phone.$error.pattern">Only Numbers Accepted</small>
+        </div>
+      </div>
+<div class="text-center">
+      <button ng-if="!emp" ng-click="addEmp(emp)" ng-disabled="myForm.$invalid" class="btn btn-primary m-3 text-center">Add Employee </button>
+      <button ng-if="emp" ng-click="editEmp(emp,id)" ng-disabled="myForm.$invalid" class="btn btn-primary m-3 text-center">Edit Employee </button>
+</div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div ng-controller="MyController">
+   <button ng-click="btnClick()" class="btn btn-primary text-white">Add</button>
+  <div class="m-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Address 1</th>
+          <th>Address 2</th>
+          <th>Postal Code</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="emp in empList">
+          <td>{{emp.id}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.phone}}</td>
+          <td>{{emp.address.city}}</td>
+          <td>{{emp.address.address_line1}}</td>
+          <td>{{emp.address.address_line2}}</td>
+          <td>{{emp.address.postalCode}}</td>
+          <td ng-click="edit($index)"><a href="">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
